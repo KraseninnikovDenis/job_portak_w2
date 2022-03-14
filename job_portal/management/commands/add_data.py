@@ -12,7 +12,7 @@ class Command(BaseCommand):
         for specialty in specialties:
             Specialty.objects.create(
                 code=specialty.get('code'),
-                title=specialty.get('title')
+                title=specialty.get('title'),
                 )
 
         for company in companies:
@@ -21,7 +21,7 @@ class Command(BaseCommand):
                 name=company.get('title'),
                 location=company.get('location'),
                 description=company.get('description'),
-                employee_count=company.get('employee_count')
+                employee_count=company.get('employee_count'),
                 )
 
         for job in jobs:
@@ -34,5 +34,5 @@ class Command(BaseCommand):
                 description=job.get('description'),
                 salary_min=float(job.get('salary_from')),
                 salary_max=float(job.get('salary_to')),
-                published_at=datetime.strptime(job.get('posted'), '%Y-%m-%d')
+                published_at=datetime.strptime(job.get('posted'), '%Y-%m-%d'),
             )

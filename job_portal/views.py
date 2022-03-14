@@ -11,7 +11,7 @@ def main(request):
     return render(
         request,
         'job_portal/index.html',
-        context=create_context_main()
+        context=create_context_main(),
         )
 
 
@@ -20,7 +20,7 @@ def vacancies(request):
     return render(
         request,
         'job_portal/vacancies.html',
-        context=create_context_all_vacancy()
+        context=create_context_all_vacancy(),
         )
 
 
@@ -29,25 +29,25 @@ def category(request, cat):
     return render(
         request,
         'job_portal/vacancies.html',
-        context=context_vacancy_one_category_or_404(cat)
+        context=context_vacancy_one_category_or_404(cat),
         )
 
 
-def companies(request, id):
+def companies(request, companies_id):
 
     return render(
         request,
         'job_portal/company.html',
-        context=context_one_companies_or_404(id)
+        context=context_one_companies_or_404(companies_id),
         )
 
 
-def selected_vacancy(request, id):
+def selected_vacancy(request, vacancy_id):
 
     return render(
         request,
         'job_portal/vacancy.html',
-        context=context_one_vacancy_or_404(id)
+        context=context_one_vacancy_or_404(vacancy_id),
         )
 
 

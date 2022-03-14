@@ -24,8 +24,8 @@ urlpatterns = [
     path('', main),
     path('vacancies/', vacancies),
     path('vacancies/cat/<str:cat>', category),
-    path('companies/<int:id>', companies),
-    path('vacancies/<int:id>', selected_vacancy),
+    path('companies/<int:companies_id>', companies),
+    path('vacancies/<int:vacancy_id>', selected_vacancy),
 ]
 
 handler404 = custom_handler404

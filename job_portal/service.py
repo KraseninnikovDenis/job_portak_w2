@@ -12,7 +12,7 @@ def create_context_main():
 
     return {
         'specialty': specialty,
-        'company': company
+        'company': company,
         }
 
 
@@ -20,7 +20,7 @@ def create_context_all_vacancy():
     vacancy = Vacancy.objects.annotate(count=Count('id'))
 
     return {
-        'vacancy': vacancy
+        'vacancy': vacancy,
         }
 
 
@@ -34,26 +34,26 @@ def context_vacancy_one_category_or_404(cat):
 
     return {
         'vacancy': vacancy,
-        'specialty': specialty.title
+        'specialty': specialty.title,
         }
 
 
-def context_one_companies_or_404(id):
+def context_one_companies_or_404(companies_id):
     try:
-        company = Company.objects.get(id=id)
+        company = Company.objects.get(id=companies_id)
     except ObjectDoesNotExist:
         raise Http404
 
-    vacancy = Vacancy.objects.filter(company__id=id).annotate(count=Count('id'))
+    vacancy = Vacancy.objects.filter(company__id=companies_id).annotate(count=Count('id'))
     return {
         'vacancy': vacancy,
-        'company': company
+        'company': company,
         }
 
 
-def context_one_vacancy_or_404(id):
+def context_one_vacancy_or_404(vacancy_id):
     try:
-        vacancy = Vacancy.objects.get(id=id)
+        vacancy = Vacancy.objects.get(id=vacancy_id)
     except ObjectDoesNotExist:
         raise Http404
 
@@ -61,5 +61,5 @@ def context_one_vacancy_or_404(id):
 
     return {
         'vacancy': vacancy,
-        'description': description
+        'description': description,
         }
